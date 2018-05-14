@@ -1,6 +1,27 @@
 version: '2'
 services:
+  configserver:
+    image: johncarnell/tmx-confsvr:chapter3
+    ports:
+       - "10000:10000"
+    environment:
+      ENCRYPT_KEY: "IMSYMMETRIC"
+  database:
+    image: postgres:9.5
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "p0stgr@s"
+      POSTGRES_DB:       "eagle_eye_local"
   licensingservice:
-      image: johncarnell/tmx-licensing-service:chapter2
-      ports:
-        - "8080:8080"
+    image: johncarnell/tmx-licensing-service:chapter3
+    ports:
+      - "10001:10001"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "10001"
+      CONFIGSERVER_URI: "http://configserver:10000"
+      CONFIGSERVER_PORT:   "10000"
+      DATABASESERVER_PORT: "5432"
+      ENCRYPT_KEY:       "IMSYMMETRIC"
