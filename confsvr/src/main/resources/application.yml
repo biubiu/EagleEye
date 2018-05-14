@@ -1,0 +1,10 @@
+server:
+  port: 10000
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///Users/shangfeicao/Code/EagleEye/configs/licensingservice
