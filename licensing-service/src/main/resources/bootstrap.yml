@@ -5,4 +5,4 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://localhost:10000
+      uri: http://configserver:10000
