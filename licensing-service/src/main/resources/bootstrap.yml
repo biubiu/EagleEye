@@ -5,4 +5,8 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://configserver:10000
+      enabled: true
+      #uri: http://configserver:10000
+#      discovery:
+#        enabled: true
+#        serviceId: configserver

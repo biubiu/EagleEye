@@ -1,4 +1,4 @@
-package com.thoughtmechanix.organizationservice;
+package com.thoughtmechanix.organization;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
