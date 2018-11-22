@@ -1,5 +1,9 @@
 version: '2'
 services:
+  eurekaserver:
+    image:   johncarnell/tmx-eurekasvr:chapter5
+    ports:
+      - "8761:8761"
   configserver:
     image: johncarnell/tmx-confsvr:chapter3
     ports:
@@ -22,6 +26,21 @@ services:
       PROFILE: "default"
       SERVER_PORT: "10001"
       CONFIGSERVER_URI: "http://configserver:10000"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
       CONFIGSERVER_PORT:   "10000"
       DATABASESERVER_PORT: "5432"
+      EUREKASERVER_PORT:   "8761"
+      ENCRYPT_KEY:       "IMSYMMETRIC"
+  organizationservice:
+    image: johncarnell/tmx-organization-service:chapter5
+    ports:
+      - "10002:10002"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "10002"
+      CONFIGSERVER_URI: "http://configserver:10000"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      CONFIGSERVER_PORT:   "10000"
+      DATABASESERVER_PORT: "5432"
+      EUREKASERVER_PORT:   "8761"
       ENCRYPT_KEY:       "IMSYMMETRIC"
