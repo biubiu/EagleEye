@@ -24,22 +24,22 @@ public class OrganizationController {
 
     @GetMapping("/{organizationId}")
     public Organization getOrganization(@PathVariable("organizationId") String organizationId) {
-        return orgService.getOrg(organizationId);
+        return orgService.getOrg(organizationId).orElse(null);
     }
 
     @PutMapping("/{organizationId}")
     public void updateOrganization( @PathVariable("organizationId") String orgId, @RequestBody Organization org) {
-        orgService.updateOrg( org );
+        orgService.updateOrg(org);
     }
 
     @PostMapping("/{organizationId}")
     public void saveOrganization(@RequestBody Organization org) {
-        orgService.saveOrg( org );
+        orgService.saveOrg(org);
     }
 
     @DeleteMapping("/{organizationId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteOrganization(@PathVariable("orgId") String orgId, @RequestBody Organization org) {
-        orgService.deleteOrg( org );
+        orgService.deleteOrg(org);
     }
 }
