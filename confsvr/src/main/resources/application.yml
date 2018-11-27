@@ -6,11 +6,10 @@ spring:
       server:
         encrypt.enabled: false
         git:
-          uri: https://github.com/carnellj/config-repo/
+          uri: https://github.com/biubiu/config-repo
           searchPaths: licensingservice,organizationservice
-          username: native-cloud-apps
-          password: 0ffended
-
+          username: biubiu
+          password: gF29hsaFV}+P
 
 ####
 #Classpath and file-based solution
